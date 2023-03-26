@@ -293,7 +293,7 @@
 
 // INPUT SHAPING -----------------------------------
 // See here on how to use Input Shaping: https://www.th3dstudio.com/marlin-input-shaping-calculator/
-#define INPUT_SHAPING
+// #define INPUT_SHAPING
 // Below are the frequency and damping settings for each axis.
 // Damping must have f at the end of the number and the range is 0.00-1.00.
 // X Axis Settings
@@ -356,7 +356,7 @@
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
 #define LINEAR_ADVANCE
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
-#define LINEAR_ADVANCE_K 0
+#define LINEAR_ADVANCE_K 0.04 
 
 // BL TOUCH ----------------------------------------
 // If you want to use the BL-Touch uncomment the 2 lines below and refer to the installation guide for the EZBoard to connect the probe.
@@ -1083,11 +1083,19 @@
   #define Z_MOTOR_CURRENT 1000
   #define E_MOTOR_CURRENT 550
 
+  #ifndef X_SH_CALIBRATION
+    #define X_SH_CALIBRATION 90
+  #endif
+
   #if X_SH_CALIBRATION == 8
     #undef X_SH_CALIBRATION
     #define X_SH_CALIBRATION 90
   #endif
   
+  #ifndef Y_SH_CALIBRATION
+    #define Y_SH_CALIBRATION 75
+  #endif
+
   #if Y_SH_CALIBRATION == 8
     #undef Y_SH_CALIBRATION
     #define Y_SH_CALIBRATION 75
