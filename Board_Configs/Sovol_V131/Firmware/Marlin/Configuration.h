@@ -196,6 +196,13 @@
 //#define REVERSE_Y_MOTOR
 //#define REVERSE_Z_MOTOR
 
+// Bed and Z Height Adjustments
+// If you need to make changes to your X, Y, and/or Z size on your printer for whatever reason you can uncomment the custom size/height line
+// for whatever axis you need to make changes to and then replace the XXX with the new size in millimeters.
+//#define CUSTOM_X_BED_SIZE XXX
+//#define CUSTOM_Y_BED_SIZE XXX
+//#define CUSTOM_Z_HEIGHT XXX
+
 //===========================================================================
 //****************** COMMUNITY REQUESTED FEATURES ***************************
 //*** COMMUNITY REQUESTED FEATURES ARE ALL NOT SUPPORTED BY TH3D SUPPORT ****
@@ -270,6 +277,10 @@
  
 //SV06 V131 Board Settings
 #if ENABLED(SOVOL_SV06)
+  #if ENABLED(SV06_EZABL_OEM_MOUNT) && DISABLED(SV06_EZABL_INSTALLED)
+    #define SV06_EZABL_INSTALLED
+  #endif
+
   #define SPEAKER_KILL
   #if ENABLED(SV06_EZABL_INSTALLED)
     #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
